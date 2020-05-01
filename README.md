@@ -1,7 +1,7 @@
-TypeScript GraphQL Parse Schema from String Demo
+TypeScript GraphQL Generate Schema to String Demo
 ===========================
 
-通过字符串来定义schema动态转换
+如何把解析出来的schema再转换成string
 
 ```
 npm install

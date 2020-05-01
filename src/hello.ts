@@ -1,8 +1,18 @@
-import {graphql} from 'graphql';
-import schema from './schema';
+import {buildSchema, printSchema} from 'graphql';
 
-const query = '{ author(id:1) { firstName, lastName } }';
+const sdlSchema = `
+  type Author {
+    firstName: String
+    lastName: String
+  }
+  type Query {
+    author(id: Int!): Author
+  }
+`;
 
-graphql(schema, query).then(result => {
-  console.log(JSON.stringify(result));
-});
+const schema = buildSchema(sdlSchema);
+console.log("### parsed schema", schema);
+
+const schemaStr = printSchema(schema);
+console.log("### schema string");
+console.log(schemaStr);
